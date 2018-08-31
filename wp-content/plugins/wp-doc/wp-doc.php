@@ -24,6 +24,7 @@ function wpdoc_init()
 }
 add_action('init', 'wpdoc_init');
     //flush rewrite rules on deactivation to remove our endpoint
+    
 function wpdoc_deactivation()
 {
     flush_rewrite_rules();
@@ -47,14 +48,14 @@ function wpdoc_template_redirect()
         $post->post_name.'.doc');
         //html
         ?>
-    <html>
-        <body>
-            <h1><?php echo $post->post_title; ?></h1>
-            <?php
-                echo apply_filters('the_content', $post->post_content);
-            ?>
-        </body>
-    </html>
+        <html>
+            <body>
+                <h1><?php echo $post->post_title; ?></h1>
+                <?php
+                    echo apply_filters('the_content', $post->post_content);
+                ?>
+            </body>
+        </html>
     <?php
     exit;
     }
